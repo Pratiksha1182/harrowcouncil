@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default Suite]">
+  <test thread-count="5" name="harrow-council(failed)">
+    <classes>
+      <class name="uk.gov.harrow.testsuit.BenefitsTest">
+        <methods>
+          <include name="verifyUserIsAbleToNavigateToBenefitsPage"/>
+          <include name="openBrowser"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- uk.gov.harrow.testsuit.BenefitsTest -->
+    </classes>
+  </test> <!-- harrow-council(failed) -->
+</suite> <!-- Failed suite [Default Suite] -->

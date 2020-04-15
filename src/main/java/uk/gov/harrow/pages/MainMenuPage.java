@@ -6,5 +6,7 @@ import uk.gov.harrow.utility.Utility;
 public class MainMenuPage extends Utility {
     By mainMenuAerialLabel = By.xpath("//a[contains(text(),'Benefits')]");
 
-    public void mouseHoverOnBenefitsAndClick(){ mouseHoverToElementAndClick(mainMenuAerialLabel);}
+    public void mouseHoverOnBenefitsAndClick(){
+        waitUntilElementToBeClickable(mainMenuAerialLabel,20);
+        clickOnElement(mainMenuAerialLabel);}
 }

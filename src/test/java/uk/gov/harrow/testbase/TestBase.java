@@ -5,16 +5,21 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import uk.gov.harrow.basepage.BasePage;
 import uk.gov.harrow.browserselector.BrowserSelector;
+import uk.gov.harrow.loadproperty.LoadProperty;
+import uk.gov.harrow.utility.Utility;
 
 import java.util.concurrent.TimeUnit;
 
 public class TestBase extends BasePage {
     BrowserSelector browserSelector = new BrowserSelector();
-    String baseUrl = "https://www.harrow.gov.uk/";
+    LoadProperty loadProperty = new LoadProperty();
+    String baseUrl = loadProperty.getProperty("baseUrl");
+    String browser = loadProperty.getProperty("browser");
+
 
     @BeforeMethod
     public void openBrowser(){
-        browserSelector.selectorBrowser("chrome");
+        browserSelector.selectorBrowser(browser);
         driver.manage().window().setPosition(new Point(2000, 0));//display into second screen
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
@@ -23,7 +28,7 @@ public class TestBase extends BasePage {
     }
 
     @AfterMethod
-    public void tearDown(){
+    public void tearDown() {
         driver.quit();
     }
 }
